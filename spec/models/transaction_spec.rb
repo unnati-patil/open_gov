@@ -8,5 +8,4 @@ RSpec.describe Transaction, type: :model do
 	# validations test
 	it { should validate_presence_of(:amount) }
 	it { should validate_presence_of(:transaction_type) }
-	# it { should validate_presence_of(:created_at) } 
 end

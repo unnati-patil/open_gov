@@ -35,32 +35,32 @@ RSpec.describe 'Transactions API' do
     end
   end
 
-  # # Test suite for GET /ledgers/:ledger_id/transactions/:id
-  # describe 'GET /ledgers/:ledger_id/transactions/:id' do
-  #   before { get "/ledgers/#{ledger_id}/transactions/#{id}" }
+  # Test suite for GET /ledgers/:ledger_id/transactions/:id
+  describe 'GET /ledgers/:ledger_id/transactions/:id' do
+    before { get "/ledgers/#{ledger_id}/transactions/#{id}" }
 
-  #   context 'when ledger transaction exists' do
-  #     it 'returns status code 200' do
-  #       expect(response).to have_http_status(200)
-  #     end
+    context 'when ledger transaction exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
 
-  #     it 'returns the item' do
-  #       expect(json['id']).to eq(id)
-  #     end
-  #   end
+      it 'returns the transaction' do
+        expect(JSON.parse(response.body)['id']).to eq(id)
+      end
+    end
 
-  #   context 'when ledger transaction does not exist' do
-  #     let(:id) { 0 }
+    context 'when ledger transaction does not exist' do
+      let(:id) { 0 }
 
-  #     it 'returns status code 404' do
-  #       expect(response).to have_http_status(404)
-  #     end
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
 
-  #     it 'returns a not found message' do
-  #       expect(response.body).to match(/Couldn't find Item/)
-  #     end
-  #   end
-  # end
+      it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find Transaction/)
+      end
+    end
+  end
 
   # Test for PUT /ledgers/:ledger_id/transactions
   describe 'POST /ledgers/:ledger_id/transactions' do

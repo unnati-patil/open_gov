@@ -1,5 +1,5 @@
 class LedgersController < ApplicationController
-	 # POST /todos
+	# POST /todos
   def create
     @ledger = Ledger.create!(ledger_params)
     json_response(@ledger, :created)
