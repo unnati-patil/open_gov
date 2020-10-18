@@ -1,6 +1,6 @@
 class Ledger < ApplicationRecord
-	has_many :transactions, dependent: :destroy
+  has_many :transactions, dependent: :destroy
 
-	# validations
+  # validations
   validates_presence_of :name, :starting_balance
 end
