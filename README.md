@@ -3,6 +3,13 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+* Application stack: 
+* Assumptions: https://github.com/unnati-patil/open_gov#asumptions
+* API Documentation: https://github.com/unnati-patil/open_gov#api-documentation
+* How to scale application: https://github.com/unnati-patil/open_gov#how-to-scale-application
+
+## Aplication required stack:
+
 Things you may want to cover:
 
 * Ruby version: 2.5.3
@@ -196,7 +203,7 @@ Response:
 }
 ```
 
-## How to scale application
+## How to scale application: 
 
 ### Vertical Scaling
 
