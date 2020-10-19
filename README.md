@@ -3,7 +3,7 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-* Application stack: 
+* Application stack: https://github.com/unnati-patil/open_gov/blob/master/README.md#aplication-required-stack
 * Assumptions: https://github.com/unnati-patil/open_gov#asumptions
 * API Documentation: https://github.com/unnati-patil/open_gov#api-documentation
 * How to scale application: https://github.com/unnati-patil/open_gov#how-to-scale-application
