@@ -9,6 +9,6 @@ class Ledger < ApplicationRecord
   validates_presence_of :name, :starting_balance
 
   def balance
-		starting_balance + transactions.count_revenues - transactions.count_expenses
+    starting_balance + transactions.count_revenues - transactions.count_expenses
   end
 end
