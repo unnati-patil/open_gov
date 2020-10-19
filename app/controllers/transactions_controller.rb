@@ -2,7 +2,7 @@
 
 # Tansaction controller
 class TransactionsController < ApplicationController
-	before_action :set_ledger
+  before_action :set_ledger
   before_action :set_ledger_transaction, only: :show
   before_action :validate_balance, only: :create
 
@@ -37,9 +37,9 @@ class TransactionsController < ApplicationController
   end
 
   def validate_balance
-  	if params[:transaction_type].eql?('expense') &&
-  		@ledger.balance < params[:amount].to_i
-  		json_response(message: "In sufficient balance. Current balance is: #{@ledger.balance}")
-  	end
+    if params[:transaction_type].eql?('expense') &&
+      @ledger.balance < params[:amount].to_i
+      json_response(message: "In sufficient balance. Current balance is: #{@ledger.balance}")
+    end
   end
 end
