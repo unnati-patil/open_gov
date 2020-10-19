@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/requests/transactions_spec.rb
 require 'rails_helper'
 
@@ -8,7 +10,7 @@ RSpec.describe 'Transactions API' do
   let(:ledger_id) { ledger.id }
   let(:id) { transactions.first.id }
 
-   # Test for GET /ledgers/:ledger_id/transactions
+  # Test for GET /ledgers/:ledger_id/transactions
   describe 'GET /ledgers/:ledger_id/transactions' do
     before { get "/ledgers/#{ledger_id}/transactions" }
 
