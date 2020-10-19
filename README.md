@@ -17,10 +17,18 @@ Things you may want to cover:
 
 * How to run the test suite: bundle exec rspec 
 
+## Asumptions:
+
+* I have assumed that starting balance for ledger is always greater than or equal to 100
+* I am not passing date while creating transaction. I am assuming that we can create transactions only for current date and not for past or future dates. 
+I am using created_at filed for fetching transaction date.
+* If current balance is less than expense amount of new transaction, then I am not allowing to create transaction. 
+
 
 ## API Documentation:
 
 * Create Ledger: POST
+```
 URL: /ledgers
 Parameters: name: string, starting_balance: decimal
 
@@ -36,7 +44,17 @@ Response:
     "updated_at": "2020-10-19T12:44:02.104Z"
 }
 
+Request:
+localhost:3000/ledgers?name='Florida ledger'&starting_balance=10
+
+Response:
+{
+    "message": "Validation failed: Starting balance must be greater than or equal to 100"
+}
+```
+
 * Create Transaction: POST
+```
 URL: /ledgers/id/transactions
 Parameters: amount: decimal, transaction_type: string(expense/revenue), description: text
 
@@ -83,8 +101,10 @@ Response:
 {
     "message": "In sufficient balance. Current balance is: 200.0"
 }
+```
 
 * List Transactions: GET
+```
 URL: ledgers/id/transactions
 
 Request:
@@ -120,6 +140,58 @@ Response:
         "updated_at": "2020-10-19T12:54:51.084Z"
     }
 ]
+```
 
 * Get ledger total: GET
-URL:
+```
+*URL:* /ledgers/id/total
+Parameters: year: year(2020), month: month(10)
+
+Request:
+localhost:3000/ledgers/6/total?year=2020&month=10
+
+Response:
+{
+    "expenses": "100.0",
+    "revenues": "150.0"
+}
+
+Request:
+localhost:3000/ledgers/1/total?year=2020&month=9
+
+Response:
+{
+    "expenses": "10.0",
+    "revenues": "0.0"
+}
+
+Request:
+localhost:3000/ledgers/6/total?year=2025&month=15
+
+Response:
+{
+    "expenses": "0.0",
+    "revenues": "0.0"
+}
+```
+
+* Get current balance: GET
+```
+URL: /ledgers/id/current_balance
+
+Request:
+ledgers/1/current_balance
+
+Response:
+{
+    "balance": "342.6"
+}
+
+Request:
+localhost:3000/ledgers/6/current_balance
+
+Response:
+{
+    "balance": "150.0"
+}
+```
