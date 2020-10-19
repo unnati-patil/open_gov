@@ -144,7 +144,7 @@ Response:
 
 * Get ledger total: GET
 ```
-*URL:* /ledgers/id/total
+URL: /ledgers/id/total
 Parameters: year: year(2020), month: month(10)
 
 Request:
@@ -195,3 +195,19 @@ Response:
     "balance": "150.0"
 }
 ```
+
+## How to scale application
+
+### Vertical Scaling
+
+* We can add more RAM and pocessors to server to handle more RPMs.
+
+### Horizontal scaling
+
+* We can convert single server architecture to three-tier architecture.
+* Due to this, the server and load balancer (Nginx), app instances, and database instances are located on different servers. In such a way, we allocate equal and smaller loads among machines.
+* It helps to create a fault-tolerant architecture for database instaces. If database receives too many requests, other database instances in the data tier can accommodate this load.
+* We can use Multi-master database replication and master-slave replication to handle thousands of requests at a time.
+* We can use caching for database scalability.
+* We can aslo use in-memory data stores like Redis or Memcache.
+
