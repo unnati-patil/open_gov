@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/requests/ledgers_spec.rb
 require 'rails_helper'
 
@@ -5,7 +7,6 @@ RSpec.describe 'Ledgers API', type: :request do
   # initialize test data
   let!(:ledgers) { create_list(:ledger, 10) }
   let(:ledger_id) { ledgers.first.id }
-
 
   # POST /ledgers
   describe 'POST /ledgers' do
@@ -18,7 +19,7 @@ RSpec.describe 'Ledgers API', type: :request do
       it 'creates a ledger' do
         expect(JSON.parse(response.body)['name']).to eq('San Francisco General Ledger')
       end
-      
+
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
@@ -37,5 +38,4 @@ RSpec.describe 'Ledgers API', type: :request do
       end
     end
   end
-
 end

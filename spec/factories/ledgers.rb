@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # factory for ledgers
 FactoryBot.define do
   factory :ledger do
